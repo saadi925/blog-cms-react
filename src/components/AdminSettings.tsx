@@ -10,7 +10,7 @@ const AdminSettingsPage = () => {
   const [textColor, setTextColor] = useState("");
 
   // Function to handle form submission
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     // Perform actions with form data (e.g., save to database)
     console.log("Form submitted:", {
@@ -58,8 +58,40 @@ const AdminSettingsPage = () => {
             className="mt-1 p-2 block w-full border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
             required
           />
+          <input
+            id="secondaryColor"
+            type="color"
+            value={secondaryColor}
+            onChange={(e) => setSecondaryColor(e.target.value)}
+            className="mt-1 p-2 block w-full border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            required
+          />
+          <input
+            id="accentColor"
+            type="color"
+            value={accentColor}
+            onChange={(e) => setAccentColor(e.target.value)}
+            className="mt-1 p-2 block w-full border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            required
+          />
+          <input
+            id="surfaceColor"
+            type="color"
+            value={surfaceColor}
+            onChange={(e) => setSurfaceColor(e.target.value)}
+            className="mt-1 p-2 block w-full border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            required
+          />
+          <input
+            id="textColor"
+            type="color"
+            value={textColor}
+            onChange={(e) => setTextColor(e.target.value)}
+            className="mt-1 p-2 block w-full border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            required
+          />
         </div>
-        {/* Add similar input fields for secondaryColor, accentColor, surfaceColor, and textColor */}
+
         <button
           type="submit"
           className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"

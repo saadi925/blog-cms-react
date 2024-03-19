@@ -1,8 +1,7 @@
-import {createSlice} from '@reduxjs/toolkit';
-import storage from '../../helpers/helpers';
+import { createSlice } from "@reduxjs/toolkit";
 // 1. Define the auth slice
 const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState: {
     token: null,
     isAuthenticated: false,
@@ -14,7 +13,6 @@ const authSlice = createSlice({
     setToken(state, action) {
       state.token = action.payload;
       state.isAuthenticated = true;
-      storage.setItem('token', action.payload);
     },
     setUser(state, action) {
       state.user = action.payload;

@@ -11,7 +11,7 @@ import {
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const AppHeader = ({ toggleSidebar }) => {
+const AppHeader = ({ toggleSidebar }: any) => {
   const [showIcons, setShowIcons] = useState(true);
 
   const toggleIcons = () => {

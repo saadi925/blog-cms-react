@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import visibleIcon from "../assets/visual.png";
 import invisibleIcon from "../assets/invisible.png";
 import { useLoginMutation } from "../setup/store/authApi";
 import { useNavigate } from "react-router-dom";
-import useAuthentication from "../setup/useAuthentication";
 const LoginForm = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -17,7 +16,6 @@ const LoginForm = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-  const auth = useAuthentication();
   const handleInputChange = (e: any) => {
     setFormData({
       ...formData,

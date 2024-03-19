@@ -21,8 +21,6 @@ const useAuthentication = (): boolean => {
     };
 
     getTokenFromStorage();
-
-    return () => {};
   }, [dispatch]);
   // this ensures useEffect runs only on mount and when dispatch changes
 

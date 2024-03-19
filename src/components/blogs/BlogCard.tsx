@@ -7,7 +7,7 @@ interface BlogCardProps {
 
 // make it better  and make the image responsive
 const BlogCard = ({ blog }: BlogCardProps) => {
-  const { thumbnail, id, title, createdAt, category, averageRating } = blog;
+  const { thumbnail, title, createdAt, category, averageRating } = blog;
   return (
     <div className="bg-background relative text-white w-full border border-transparent hover:border-surface transition-all duration-300 border-opacity-50 cursor-pointer hover:bg-primary/10 rounded-lg py ">
       <img

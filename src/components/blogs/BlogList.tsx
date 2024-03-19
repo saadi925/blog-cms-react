@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../setup/store/store";
 const BlogList = () => {
-  const { data, isLoading } = useGetPostsQuery();
+  const { data } = useGetPostsQuery();
   console.log(data);
 
   const dispatch = useDispatch();

@@ -3,12 +3,12 @@ import { Search } from "../../assets/Search";
 import FilterIcon from "../../assets/FilterIcon";
 type SearchInputProps = {
   isOpen: boolean;
-  handleFilterClick: () => void;
+  // handleFilterClick: () => void;
 };
 export function SearchInput({
   isOpen = false,
-  handleFilterClick,
-}: SearchInputProps) {
+}: // handleFilterClick,
+SearchInputProps) {
   // using input ref for auto focusing when the user clicks on the search icon in the header
   const inputRef = useRef<HTMLInputElement>(null);
 

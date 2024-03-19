@@ -1,5 +1,3 @@
-import React from "react";
-
 const CategoryIcon = ({ size = 32, fill = "#000" }) => {
   return (
     <svg
