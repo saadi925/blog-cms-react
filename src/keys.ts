@@ -1,1 +1,1 @@
-export const HOST = "service.dgspark.site";
+export const HOST = "https://dgspark.site/api";
