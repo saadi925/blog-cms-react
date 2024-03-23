@@ -4,8 +4,8 @@ import { AppHeader, AppSideBar } from "../components";
 import useAuthentication from "./useAuthentication";
 import { SIDE_BAR_WIDTH } from "./constant";
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
-  const authenticated = useAuthentication();
-  const [showSidebar, setShowSidebar] = useState(authenticated);
+  const { isAuthenticated } = useAuthentication();
+  const [showSidebar, setShowSidebar] = useState(isAuthenticated);
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
@@ -27,7 +27,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="bg-primary">
       <div className="flex bg-primary/10 min-h-screen">
-        {authenticated ? (
+        {isAuthenticated ? (
           <>
             <motion.div
               initial={{

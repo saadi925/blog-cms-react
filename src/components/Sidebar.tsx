@@ -6,12 +6,10 @@ import ReviewsIcon from "../assets/ReviewsIcon";
 import useAuthentication from "../setup/useAuthentication";
 const AppSideBar = ({ toggleSidebar }: { toggleSidebar: any }) => {
   const navigate = useNavigate();
-  const auth = useAuthentication();
+  const { isAuthenticated } = useAuthentication();
   const handleLogout = () => {
     localStorage.removeItem("token");
-    setTimeout(() => {
-      navigate("/auth/login");
-    }, 1000);
+    navigate("/cms/auth/login");
   };
   const routes = [
     {
@@ -38,7 +36,7 @@ const AppSideBar = ({ toggleSidebar }: { toggleSidebar: any }) => {
 
   return (
     <>
-      {auth ? (
+      {isAuthenticated ? (
         <motion.div
           initial={{ x: -300 }} // Initial position outside of the viewport
           animate={{ x: 0 }} // Animation to slide in from left
@@ -66,7 +64,7 @@ const AppSideBar = ({ toggleSidebar }: { toggleSidebar: any }) => {
               </LinkItem>
             ))}
             <div className="mt-auto px-6">
-              <Link to="settings">
+              <Link to="/cms/settings">
                 <button className="bg-gray-900 text-gray-100 py-3 px-5 rounded-full mb-2 w-full">
                   Settings
                 </button>

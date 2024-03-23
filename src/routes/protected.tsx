@@ -7,10 +7,10 @@ import Categories from "../components/categories/Categories";
 export const ProtectedRoutes = [
   {
     children: [
-      { path: "/settings", element: <AdminSettings /> },
-      { path: "/", element: <Blogs /> },
-      { path: "/categories", element: <Categories /> },
-      { path: "*", element: <Navigate to="/" /> },
+      { path: "/cms/settings", element: <AdminSettings /> },
+      { path: "/cms/", element: <Blogs /> },
+      { path: "/cms/categories", element: <Categories /> },
+      { path: "*", element: <Navigate to="/cms" /> },
     ],
   },
 ];

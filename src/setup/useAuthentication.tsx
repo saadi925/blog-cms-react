@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./store/store";
 import { actions } from "./store/auth";
-const useAuthentication = (): boolean => {
+const useAuthentication = (): { isAuthenticated: boolean } => {
   const { setToken } = actions;
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
@@ -24,7 +24,7 @@ const useAuthentication = (): boolean => {
   }, [dispatch]);
   // this ensures useEffect runs only on mount and when dispatch changes
 
-  return isAuthenticated;
+  return { isAuthenticated };
 };
 
 export default useAuthentication;

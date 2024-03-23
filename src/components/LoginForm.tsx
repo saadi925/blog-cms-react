@@ -30,7 +30,7 @@ const LoginForm = () => {
       if (res.token) {
         localStorage.setItem("token", res.token);
         setTimeout(() => {
-          navigate("/");
+          navigate("/cms");
         }, 1000);
         setMsg("Login Successful");
       }

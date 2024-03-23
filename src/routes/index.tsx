@@ -4,9 +4,9 @@ import { useRoutes } from "react-router-dom";
 import useAuthentication from "../setup/useAuthentication";
 
 export const AppRoutes = () => {
-  const auth = useAuthentication();
+  const { isAuthenticated } = useAuthentication();
 
-  const routes = auth ? ProtectedRoutes : PublicRoutes;
+  const routes = isAuthenticated ? ProtectedRoutes : PublicRoutes;
 
   const element = useRoutes(routes);
 
