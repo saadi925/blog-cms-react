@@ -13,22 +13,22 @@ const AppSideBar = ({ toggleSidebar }: { toggleSidebar: any }) => {
   };
   const routes = [
     {
-      to: "/",
+      to: "/cms",
       icon: <FaBlog size={20} />,
       name: "Blogs",
     },
     {
-      to: "/categories",
+      to: "/cms/categories",
       icon: <CategoryIcon fill="#000" size={24} />,
       name: "Categories",
     },
     {
-      to: "/reviews",
+      to: "/cms/reviews",
       icon: <ReviewsIcon fill="#FFD700" size={32} />,
       name: "Reviews",
     },
     {
-      to: "/users",
+      to: "/cms/users",
       icon: <FaUser size={20} />,
       name: "Users",
     },
