@@ -9,6 +9,7 @@ import { Category } from "./CategoryList";
 import Selectable from "../Selectable";
 import { useDispatch } from "react-redux";
 import { createCategoryData } from "../../setup/store/slices/dataSlice";
+
 interface CategoryModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -23,20 +24,24 @@ const CategoryModal: React.FC<CategoryModalProps> = ({
   const [categoryName, setCategoryName] = useState("");
   const [categoryDescription, setCategoryDescription] = useState("");
   const [parentCategory, setParentCategory] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
   const activeInputRef = useRef(null);
   const dispatch = useDispatch();
   const [createCategory, { isLoading }] = useCreateCategoryMutation();
+
   const handleSaveCategory = async () => {
     try {
       const res = await createCategory({
         name: categoryName,
         description: categoryDescription,
         parentId: parentCategory,
+        thumbnail: thumbnail, // Add thumbnail to the request
       }).unwrap();
       if (res.name === categoryName) {
         setCategoryName("");
         setCategoryDescription("");
         setParentCategory("");
+        setThumbnail("");
         onClose();
         dispatch(createCategoryData(res));
       }
@@ -88,6 +93,30 @@ const CategoryModal: React.FC<CategoryModalProps> = ({
               value={categoryName}
               onChange={(e) => setCategoryName(e.target.value)}
             />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="thumbnail"
+              className="block text-sm font-medium text-white"
+            >
+              Thumbnail (URL)
+            </label>
+            <input
+              type="text"
+              id="thumbnail"
+              className="mt-1 p-2 block w-full outline-none border-white/20 border rounded-md shadow-sm focus:ring-accent/40 focus:border-accent sm:text-sm"
+              value={thumbnail}
+              onChange={(e) => setThumbnail(e.target.value)}
+            />
+            {thumbnail && (
+              <div className="mt-2">
+                <img
+                  src={thumbnail}
+                  alt="Thumbnail Preview"
+                  className="max-w-full h-auto rounded-md"
+                />
+              </div>
+            )}
           </div>
           <Selectable
             value={parentCategory}

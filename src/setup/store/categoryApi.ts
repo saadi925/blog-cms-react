@@ -7,6 +7,7 @@ type CategoryData = {
   name: string;
   description: string;
   parentId?: string;
+  thumbnail?: string;
 };
 export const categoryApi = createApi({
   reducerPath: "categoryApi",

@@ -3,12 +3,12 @@ import { AuthRoutes } from "./authRoutes";
 
 export const PublicRoutes = [
   {
-    path: "/cms/auth/*",
+    path: "/cms",
     element: <AuthRoutes />,
   },
   {
     path: "*",
-    element: <Navigate to="/cms/auth/login" />,
+    element: <Navigate to="/cms" />,
   },
 ];
 

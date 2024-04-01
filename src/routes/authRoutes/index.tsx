@@ -4,7 +4,7 @@ import { LoginForm } from "../../components";
 export const AuthRoutes = () => {
   return (
     <Routes>
-      <Route path="login" element={<LoginForm />} />
+      <Route path="/" element={<LoginForm />} />
     </Routes>
   );
 };

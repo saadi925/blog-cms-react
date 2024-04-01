@@ -10,6 +10,13 @@ export const postsApi = createApi({
     prepareHeaders: prepareHeaders,
   }),
   endpoints: (builder) => ({
+    createPost: builder.mutation({
+      query: (body) => ({
+        url: "/",
+        method: "POST",
+        body: body,
+      }),
+    }),
     getPosts: builder.query<BlogType[], void>({
       query: () => ({
         url: "/",
@@ -25,4 +32,8 @@ export const postsApi = createApi({
   }),
 });
 
-export const { useGetPostsQuery, useDeletePostsMutation } = postsApi;
+export const {
+  useGetPostsQuery,
+  useDeletePostsMutation,
+  useCreatePostMutation,
+} = postsApi;

@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+  .input {
+    @apply bg-gray-900 text-white rounded-lg p-3;
+  }
+  .label {
+    @apply text-gray-500 font-semibold text-xl;
+  }
+  .long-btn {
+    @apply bg-green-500 text-white font-semibold px-3 rounded-lg w-full;
+  }
+}

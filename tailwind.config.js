@@ -2,7 +2,12 @@ import { darkTheme } from "./src/theme/COLORS";
 const { COLORS } = darkTheme;
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/editor/**/*.{js,ts,jsx,tsx}",
+    "./src/editor/components/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {

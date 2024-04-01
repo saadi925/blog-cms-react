@@ -9,7 +9,7 @@ const AppSideBar = ({ toggleSidebar }: { toggleSidebar: any }) => {
   const { isAuthenticated } = useAuthentication();
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/cms/auth/login");
+    navigate("/cms");
   };
   const routes = [
     {

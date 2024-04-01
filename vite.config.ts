@@ -3,6 +3,16 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  // mime types error fix
+  plugins: [
+    react({
+      jsxImportSource: "@emotion/react", // Use Emotion's jsx function
+      babel: {
+        plugins: ["@emotion/babel-plugin"], // Add the Emotion Babel plugin
+      },
+    }),
+  ],
+  base: "/cms",
+  define: {
+    global: {},
+  },
 });
