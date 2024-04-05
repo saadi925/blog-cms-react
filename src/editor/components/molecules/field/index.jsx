@@ -122,25 +122,17 @@ const Field = ({ setRef = () => {}, formLinker, ...props }) => {
       }
       case "text":
         return <Textarea {...props} {...commonProps} ref={inputRef} />;
-      // case 'select':
-      //   return <Select {...props} {...commonProps} ref={inputRef} />;
-      // case 'radio':
-      //   return <RadioBtn {...props} {...commonProps} ref={inputRef} />;
-      // case 'multiSelect':
-      //   return <MultiSelect {...props} {...commonProps} ref={setRefFn} />;
       case "editor":
         return (
-          <RichEditor
+       <div className="bg-white text-black rounded-md">
+           <RichEditor
             {...props}
             {...commonProps}
             ref={setRefFn}
             formLinker={formLinker}
           />
+       </div>
         );
-      // case 'summernote':
-      //   return <SummernoteEditor {...props} {...commonProps} ref={setRefFn} formLinker={formLinker} />;
-      // case 'currency':
-      //   return <Currency {...props} {...commonProps} type={props.inputType} ref={inputRef} />;
       default:
         return (
           <Input

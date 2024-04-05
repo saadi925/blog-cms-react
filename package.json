@@ -45,6 +45,7 @@
     "react-redux": "^8.1.1",
     "react-router-dom": "^6.14.0",
     "react-spring": "9.3.0",
+    "react-toastify": "^10.0.5",
     "redux-thunk": "^2.4.2",
     "regenerator-runtime": "0.13.9",
     "simple-translator": "0.2.5",

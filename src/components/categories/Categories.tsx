@@ -17,7 +17,6 @@ const Categories = () => {
   const categoriesInStore = useSelector(
     (state: RootState) => state.data.categories
   );
-  // Update categories in the Redux store when data is fetched
   useEffect(() => {
     const fetchCat = async () => {
       const res = await fetch(`${HOST}/categories`);
@@ -25,14 +24,14 @@ const Categories = () => {
       dispatch(setCategories(obj));
     };
     fetchCat();
-  }, [categoriesInStore, dispatch]);
+  }, [categoriesInStore.length,dispatch]);
 
   const handleModalToggle = () => {
     setModalOpen(!isModalOpen);
   };
 
   return (
-    <div className={`${isModalOpen ? "blur" : ""}`}>
+    <div className={`${isModalOpen ? "blur" : ""} `}>
       <div className="flex w-full justify-between px-4 pt-3">
         <MinHeading name="Categories" />
         <div className="">
@@ -49,6 +48,7 @@ const Categories = () => {
         </div>
       </div>
       <CategoryList data={categoriesInStore} />
+    
     </div>
   );
 };

@@ -20,6 +20,18 @@ export const categoryApi = createApi({
         body: credentials,
       }),
     }),
+    updateCategory: builder.mutation<Category, any>({
+      query: (credentials) => ({
+        url: `${credentials.id}`,
+        method: "PUT",
+        body: {
+          name: credentials.name,
+          description: credentials.description,
+          thumbnail: credentials.thumbnail,
+        
+        },
+      }),
+    }),
     getCategories: builder.query<Category[], void>({
       query: () => ({
         url: "/",
@@ -37,6 +49,6 @@ export const categoryApi = createApi({
 
 export const {
   useCreateCategoryMutation,
-  useGetCategoriesQuery,
+  useGetCategoriesQuery,useUpdateCategoryMutation,
   useDeleteCategoryMutation,
 } = categoryApi;

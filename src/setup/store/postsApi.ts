@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { prepareHeaders } from "./middleware/verification";
-import { BlogType } from "./slices/dataSlice";
 import { HOST } from "../../keys";
+import { BlogItem } from "../../components/blogs/BlogCard";
 
 export const postsApi = createApi({
   reducerPath: "postsApi",
@@ -17,12 +17,26 @@ export const postsApi = createApi({
         body: body,
       }),
     }),
-    getPosts: builder.query<BlogType[], void>({
+    updatePost : builder.mutation({
+      query: (body) => ({
+        url: "/",
+        method: "PUT",
+        body: body,
+      }),
+    }),
+    getPosts: builder.query<BlogItem[], void>({
       query: () => ({
         url: "/",
         method: "GET",
       }),
     }),
+   getPostById: builder.query<BlogItem, number>({
+      query: (id) => ({
+        url: `/${id}`,
+        method: "GET",
+      }),
+    })
+    ,
     deletePosts: builder.mutation<{ message: string }, number>({
       query: (id) => ({
         url: `/${id}`,
@@ -35,5 +49,5 @@ export const postsApi = createApi({
 export const {
   useGetPostsQuery,
   useDeletePostsMutation,
-  useCreatePostMutation,
+  useCreatePostMutation,useUpdatePostMutation, useGetPostByIdQuery
 } = postsApi;

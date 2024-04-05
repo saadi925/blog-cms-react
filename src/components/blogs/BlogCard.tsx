@@ -1,36 +1,74 @@
-import { BlogType } from "../../setup/store/slices/dataSlice";
-import Rating from "../rating/Rating";
+import React from "react";
+import { Link } from "react-router-dom";
 
-interface BlogCardProps {
-  blog: BlogType;
+export interface BlogItem {
+  id: number;
+  title: string;
+  thumbnail: string;
+  createdAt: Date;
+  description : string
+  category: {
+    id: number;
+    name: string;
+    description: string;
+    thumbnail: string;
+  };
+  averageRating: number;
 }
 
-// make it better  and make the image responsive
-const BlogCard = ({ blog }: BlogCardProps) => {
-  const { thumbnail, title, createdAt, category, averageRating } = blog;
+type BlogCardProps = {
+  blog: BlogItem;
+};
+
+const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
+  const { title,description, thumbnail, createdAt, category, averageRating } = blog;
+
   return (
-    <div className="bg-background relative text-white w-full border border-transparent hover:border-surface transition-all duration-300 border-opacity-50 cursor-pointer hover:bg-primary/10 rounded-lg py ">
+    <div className="max-w-lg w-full rounded-lg border border-gray-300 shadow-md">
       <img
+        className="w-full h-48 object-cover rounded-t-lg"
         src={thumbnail}
-        className="rounded-md w-full object-cover max-h-40"
         alt={title}
       />
-      <p className="absolute top-0 right-0 bg-background rounded-full px-2 py-1 ">
-        {createdAt
-          .toLocaleDateString("en-US", {
-            day: "numeric",
-            month: "short",
-            year: "2-digit",
-          })
-          .toUpperCase()}
-      </p>
-
-      <h3 className="text-xl px-2">{title.slice(0, 20)}...</h3>
-      <div className="flex items-center justify-between p-2">
-        <Rating defaultValue={averageRating} />
-        <p className="text-surface  bg-background px-2 py-1 rounded-full">
-          {category.name}
-        </p>
+      <div className="bg-background rounded-b-lg lg:rounded-b-none lg:rounded-r-lg p-4 flex flex-col justify-between leading-normal">
+        <div className="mb-4">
+          <div className="text-white/70 font-bold text-xl mb-2">
+            {/* Display title with maximum of 3 lines */}
+            <Link to={`/cms/post/${blog.id}`}
+              className="line-clamp-3"
+              style={{ display: "-webkit-box", WebkitBoxOrient: "vertical" }}
+            >
+              {title}
+            </Link>
+          </div>
+          <div className="text-gray-600">
+            {/* Display description with maximum of 3 lines */}
+            <div
+              className="line-clamp-3"
+              style={{ display: "-webkit-box", WebkitBoxOrient: "vertical" }}
+            >
+              {description}
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center">
+          <img
+            className="w-10 h-10 rounded-full mr-4"
+            src={category.thumbnail}
+            alt={`Category: ${category.name}`}
+          />
+          <div className="text-sm">
+            <p className="text-surface leading-none">{category.name}</p>
+          </div>
+        </div>
+        <div className="mt-4 flex items-center">
+          <span className="text-white/50">
+            Published on {new Date(createdAt).toLocaleDateString()}
+          </span>
+          <span className="ml-auto bg-gray-200 text-gray-700 py-1 px-3 rounded-full text-xs font-bold">
+            {averageRating} ⭐
+          </span>
+        </div>
       </div>
     </div>
   );

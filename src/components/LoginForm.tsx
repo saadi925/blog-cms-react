@@ -29,9 +29,7 @@ const LoginForm = () => {
       const res = await login(formData).unwrap();
       if (res.token) {
         localStorage.setItem("token", res.token);
-        setTimeout(() => {
-          navigate("/cms");
-        }, 1000);
+        navigate("/")
         setMsg("Login Successful");
       }
     } catch (err: any) {

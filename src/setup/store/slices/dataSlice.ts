@@ -1,16 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Category } from "../../../components/categories/CategoryList";
-export type BlogType = {
-  id: number;
-  title: string;
-  thumbnail: string;
-  createdAt: Date;
-  category: { name: string; id: number };
-  averageRating: number;
-};
+import { BlogItem } from "../../../components/blogs/BlogCard";
 
 type Data = {
-  blogs: BlogType[];
+  blogs: BlogItem[];
   categories: Category[];
   loading: boolean;
   error: string | null;
@@ -48,6 +41,14 @@ export const dataSlice = createSlice({
     createCategoryData(state, action: { payload: any }) {
       state.categories.push(action.payload);
     },
+    updateCategoryData(state, action: { payload: any }) {
+      state.categories = state.categories.map((category: Category) => {
+        if (category.id === action.payload.id) {
+          return action.payload;
+        }
+        return category;
+      });
+    }
   },
 });
 
@@ -57,7 +58,7 @@ export const {
   setLoading,
   setError,
   clearError,
-  deleteCategoryById,
+  deleteCategoryById,updateCategoryData,
   createCategoryData,
 } = dataSlice.actions;
 export default dataSlice.reducer;

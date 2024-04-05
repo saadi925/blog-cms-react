@@ -11,7 +11,7 @@ const useAuthentication = (): { isAuthenticated: boolean } => {
     const getTokenFromStorage = async () => {
       try {
         const token = localStorage.getItem("token");
-
+ 
         if (token) {
           dispatch(setToken(token));
         }

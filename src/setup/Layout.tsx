@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { AppHeader, AppSideBar } from "../components";
 import useAuthentication from "./useAuthentication";
 import { SIDE_BAR_WIDTH } from "./constant";
+import ToastNotifications from "../components/Toast";
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuthentication();
   const [showSidebar, setShowSidebar] = useState(isAuthenticated);
@@ -23,7 +24,9 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
+function handleAutoClose(){
+  isMobileView && setShowSidebar(false)
+}
   return (
     <div className="bg-primary">
       <div className="flex bg-primary/10 min-h-screen">
@@ -42,7 +45,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
               <AppSideBar toggleSidebar={toggleSidebar} />
             </motion.div>
             <motion.div
-              className={`flex-grow transition-all`}
+              className={`flex-grow transition-all `} 
               initial={{
                 marginLeft: showSidebar && !isMobileView ? "0" : SIDE_BAR_WIDTH,
               }}
@@ -53,13 +56,16 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
             >
               <AppHeader toggleSidebar={toggleSidebar} />
 
-              {children}
+           <div onClick={handleAutoClose}>
+           {children}
+           </div>
             </motion.div>
           </>
         ) : (
           children
         )}
       </div>
+      <ToastNotifications />
     </div>
   );
 };

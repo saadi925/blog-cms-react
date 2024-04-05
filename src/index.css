@@ -3,10 +3,13 @@
 @tailwind utilities;
 @layer components {
   .input {
-    @apply bg-gray-900 text-white rounded-lg p-3;
+    @apply bg-background ml-2 mt-2 text-white rounded-lg max-w-xl ;
   }
   .label {
-    @apply text-gray-500 font-semibold text-xl;
+    @apply text-gray-300 py-2 ml-2 mt-2 font-semibold text-xl;
+  }
+  .label-box{
+    @apply flex flex-col flex-wrap rounded-md w-full mt-2;
   }
   .long-btn {
     @apply bg-green-500 text-white font-semibold px-3 rounded-lg w-full;
