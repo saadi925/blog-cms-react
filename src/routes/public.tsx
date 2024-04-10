@@ -3,7 +3,7 @@ import { AuthRoutes } from "./authRoutes";
 
 export const PublicRoutes = [
   {
-    path: "/cms",
+    path: "/cms/*",
     element: <AuthRoutes />,
   },
   {

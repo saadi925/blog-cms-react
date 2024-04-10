@@ -51,7 +51,7 @@ export default styled.div`
           svg {
             width: 14px;
             height: 14px;
-            fill: currentColor;
+            fill: #fff;
           }
 
           &.OUTDENT {
@@ -76,7 +76,7 @@ export default styled.div`
           box-shadow: inset 0 0 4px ${props => colorHelper(props.theme.colors.textOnPageBackground).rgba(0.3)};
 
           svg {
-            fill: currentColor;
+            fill: #fff;
           }
         }
 

@@ -3,7 +3,7 @@
 @tailwind utilities;
 @layer components {
   .input {
-    @apply bg-background ml-2 mt-2 text-white rounded-lg max-w-xl ;
+    @apply bg-slate-800 ml-2 mt-2 text-white rounded-lg max-w-xl ;
   }
   .label {
     @apply text-gray-300 py-2 ml-2 mt-2 font-semibold text-xl;

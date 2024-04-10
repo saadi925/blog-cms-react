@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { prepareHeaders } from "./middleware/verification";
 import { HOST } from "../../keys";
-import { BlogItem } from "../../components/blogs/BlogCard";
 
 export const postsApi = createApi({
   reducerPath: "postsApi",
@@ -24,15 +23,15 @@ export const postsApi = createApi({
         body: body,
       }),
     }),
-    getPosts: builder.query<BlogItem[], void>({
+    getPosts: builder.query<any, void>({
       query: () => ({
-        url: "/",
+        url: `/`,
         method: "GET",
       }),
     }),
-   getPostById: builder.query<BlogItem, number>({
-      query: (id) => ({
-        url: `/${id}`,
+   getPostBySlug: builder.query<any, string>({
+      query: (slug) => ({
+        url: `/find?slug=${slug}`,
         method: "GET",
       }),
     })
@@ -49,5 +48,5 @@ export const postsApi = createApi({
 export const {
   useGetPostsQuery,
   useDeletePostsMutation,
-  useCreatePostMutation,useUpdatePostMutation, useGetPostByIdQuery
+  useCreatePostMutation,useUpdatePostMutation, useGetPostBySlugQuery
 } = postsApi;

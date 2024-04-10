@@ -6,7 +6,7 @@ const useAuthentication = (): { isAuthenticated: boolean } => {
   const { setToken } = actions;
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
-
+  
   useEffect(() => {
     const getTokenFromStorage = async () => {
       try {
@@ -21,8 +21,7 @@ const useAuthentication = (): { isAuthenticated: boolean } => {
     };
 
     getTokenFromStorage();
-  }, [dispatch]);
-  // this ensures useEffect runs only on mount and when dispatch changes
+  }, [dispatch,isAuthenticated]);
 
   return { isAuthenticated };
 };

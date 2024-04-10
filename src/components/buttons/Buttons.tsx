@@ -27,13 +27,15 @@ export const IconButton = ({
 
 const AppButton = ({
   name,
-  onClick,
+  onClick,IsLoading
 }: {
   name: string;
   onClick: () => void;
+  IsLoading:boolean
 }) => {
   return (
     <button
+      disabled={IsLoading}
       onClick={() => onClick()}
       className="bg-surface border border-transparent transtion-all duration-300 text-white font-semibold rounded-full hover:bg-surface/60 active:bg-black active:border-primary py-3 px-5 "
     >

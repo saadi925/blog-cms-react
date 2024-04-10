@@ -40,7 +40,7 @@ export const FONTS = [
   'Times New Roman',
   'Verdana',
 ];
-export const FONT_SIZES = [8, 9, 10, 11, 12, 14, 18, 24, 36];
+export const FONT_SIZES = [8, 9, 10, 11, 12, 14,16, 18, 24, 36];
 
 export const defaultPreTagStyling = [
   ['padding', '9.5px'],
@@ -59,16 +59,16 @@ export const availableAlignments = [
 export const availableBlockTypes = [
   { type: 'unstyled', display: { name: 'normal' }, tag: 'div' },
   { type: 'paragraph', display: { name: 'paragraph' }, tag: 'p' },
-  { type: 'unordered-list-item', display: { name: ' bullet list', style: { fontSize: '14px' }, icon: 'list-ul-sld' } },
-  { type: 'ordered-list-item', display: { name: ' number list', style: { fontSize: '14px' }, icon: 'list-ol-sld' } },
+  { type: 'unordered-list-item', display: { name: ' bullet list', style: { fontSize: '16px' }, icon: 'list-ul-sld' } },
+  { type: 'ordered-list-item', display: { name: ' number list', style: { fontSize: '16px' }, icon: 'list-ol-sld' } },
   {
     type: 'horizontal-rule',
-    display: { name: 'h-rule', style: { fontSize: '14px' } },
+    display: { name: 'h-rule', style: { fontSize: '16px' } },
     tag: 'hr',
   },
   {
     type: 'page-break',
-    display: { name: 'page-break', style: { fontSize: '14px' } },
+    display: { name: 'page-break', style: { fontSize: '16px' } },
     tag: 'div',
   },
   { type: 'header-one', display: { name: 'H1', style: { fontSize: '26px', fontWeight: '700' } }, tag: 'h1' },

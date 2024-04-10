@@ -11,7 +11,7 @@ const CloseIcon: React.FC<Props> = ({
   return (
 <svg height={size} width={size} 
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-surface hover:text-gray-500 cursor-pointer"
+                className=" text-white hover:text-gray-500 cursor-pointer"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

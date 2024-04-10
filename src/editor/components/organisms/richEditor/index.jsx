@@ -1519,7 +1519,7 @@ const RichEditor = React.forwardRef((props, ref) => {
     return (
       <div id={props.name} ref={editorWrapperRef} onClick={() => (clickOutsideRef.current = false)}>
         <ToolbarStyle
-          className='rich-text-toolbar'
+          className='rich-text-toolbar bg-slate-500 '
           maxDropdownHeight={Math.min(editorDOMRef.current?.getBoundingClientRect().height + 50 || 470, 570)}
         >
           {props.disabled && <div className='disabled-toolbar'></div>}
@@ -1578,7 +1578,7 @@ const RichEditor = React.forwardRef((props, ref) => {
   } else {
     return (
       <RawHtmlStyle className='raw-html'>
-        <ToolbarStyle className='rich-text-toolbar'>
+        <ToolbarStyle className='rich-text-toolbar bg-white'>
           <Controls
             toolbar={['viewHtml']}
             editModeToggle={toggleEditMode}

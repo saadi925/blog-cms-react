@@ -1,2 +1,4 @@
-import { FC } from "react";
-declare const Editor: FC;
+// import { FC } from "react";
+// declare module "./Home.jsx" {
+//     declare const CustomRichText: FC;
+//   }

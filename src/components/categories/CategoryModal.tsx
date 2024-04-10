@@ -1,9 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Dialog } from "@headlessui/react";
-import AddIcon from "../../assets/AddIcon";
-import { darkTheme } from "../../theme/COLORS";
 import MinHeading from "../MinHeading";
-import AppButton, { ButtonWithIcon } from "../buttons/Buttons";
+import AppButton from "../buttons/Buttons";
 import { useCreateCategoryMutation } from "../../setup/store/categoryApi";
 import { Category } from "./CategoryList";
 import Selectable from "../Selectable";
@@ -131,7 +129,7 @@ const CategoryModal: React.FC<CategoryModalProps> = ({
             />
           </div>
           <div className="flex justify-end">
-           <AppButton name='Save' onClick={()=> handleSaveCategory()}/>
+           <AppButton IsLoading={isLoading} name='Save' onClick={()=> handleSaveCategory()}/>
           </div>
           <p className="text-center text-error">{error}</p>
         </div>

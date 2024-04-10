@@ -4,12 +4,18 @@ import { motion } from "framer-motion";
 import CategoryIcon from "../assets/CategoryIcon";
 import ReviewsIcon from "../assets/ReviewsIcon";
 import useAuthentication from "../setup/useAuthentication";
+import { actions } from "../setup/store/auth";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 const AppSideBar = ({ toggleSidebar }: { toggleSidebar: any }) => {
-  const navigate = useNavigate();
+  const dispatch =useDispatch()
+  const navigate = useNavigate()
   const { isAuthenticated } = useAuthentication();
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/cms");
+    dispatch(actions.logout())
+    navigate('/cms')
+    toast.success('Logged Out Successfully')
+   
   };
   const routes = [
     {
@@ -23,9 +29,9 @@ const AppSideBar = ({ toggleSidebar }: { toggleSidebar: any }) => {
       name: "Categories",
     },
     {
-      to: "/cms/reviews",
+      to: "/cms/shop",
       icon: <ReviewsIcon fill="#FFD700" size={32} />,
-      name: "Reviews",
+      name: "Shop",
     },
     {
       to: "/cms/users",

@@ -3,9 +3,12 @@ import visibleIcon from "../assets/visual.png";
 import invisibleIcon from "../assets/invisible.png";
 import { useLoginMutation } from "../setup/store/authApi";
 import { useNavigate } from "react-router-dom";
+import { actions } from "../setup/store/auth";
+import { useDispatch } from "react-redux";
 const LoginForm = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   const [login, { isLoading, isSuccess, isError }] = useLoginMutation();
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -28,7 +31,7 @@ const LoginForm = () => {
     try {
       const res = await login(formData).unwrap();
       if (res.token) {
-        localStorage.setItem("token", res.token);
+        dispatch(actions.setToken(res.token))
         navigate("/")
         setMsg("Login Successful");
       }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import CategoryCard from "./CategoryCard";
 import { Category } from "./CategoryList";
 import { toast } from 'react-toastify';
@@ -13,9 +13,9 @@ interface SubCategoriesProps {
 
 const notify = () => toast.error("No categories found!");
 
- const Subcategories: React.FC<SubCategoriesProps> = ({
+ const Subcategories = ({
     category , onClose, handleSelected, 
-}) => {
+} : SubCategoriesProps) => {
     const exists = category.subcategories && Array.isArray(category.subcategories) && category.subcategories.length > 0;
   useEffect(()=>{
   if (!exists) {
@@ -33,7 +33,7 @@ const notify = () => toast.error("No categories found!");
                  </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:grid-cols-3">
-                    {category.subcategories.map((subcategory) => (
+                    {category.subcategories.map((subcategory : any) => (
                         <CategoryCard
                             handleSelected={handleSelected}
                             key={subcategory.id}

@@ -1,18 +1,24 @@
 import { Navigate } from "react-router-dom";
-import { Editor } from "../editor/Home.jsx";
+// @ts-ignore 
+import { CustomRichText } from "../editor/Home.jsx" 
+
 import Blogs from "../components/blogs/Blogs";
 import AdminSettings from "../components/AdminSettings";
 import Categories from "../components/categories/Categories";
 import BlogPostPage from "./BlogPost.js";
+import MyShop from "../components/shop/MyShop.js";
 
 export const ProtectedRoutes = [
   {
+    path :"/cms",
     children: [
-      { path: "/cms/settings", element: <AdminSettings /> },
-      { path: "/cms", element: <Blogs /> },
-      { path: "/cms/post", element: <Editor /> },
-      {path :"/cms/post/:id", element: <BlogPostPage/>},
-      { path: "/cms/categories", element: <Categories /> },
+      { path: "", element: <Blogs /> },
+      { path: "settings", element: <AdminSettings /> },
+      { path: "post", element: <CustomRichText /> },
+      {path :"post/edit/:slug", element: <CustomRichText editMode={true}/>},
+      {path :"post/:slug", element: <BlogPostPage/>},
+      { path: "categories", element: <Categories /> },
+      { path: "shop", element: <MyShop /> },
       { path: "*", element: <Navigate to="/cms" /> },
     ],
   },
