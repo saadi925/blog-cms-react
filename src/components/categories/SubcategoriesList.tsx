@@ -15,36 +15,32 @@ const notify = () => toast.error("No categories found!");
 
  const Subcategories = ({
     category , onClose, handleSelected, 
-} : SubCategoriesProps) => {
+} : SubCategoriesProps) : JSX.Element=> {
     const exists = category.subcategories && Array.isArray(category.subcategories) && category.subcategories.length > 0;
   useEffect(()=>{
   if (!exists) {
     notify()
     onClose()
   }
-  },[exists])
-    if (exists) {
-        return (
-            <div className="relative top-0 border border-surface/10 bg-background py-4 px-2 rounded-md">
-                <div className="flex justify-between items-center">
-                    <h1 className="py-2 text-surface font-semibold text-3xl">{category.name}</h1>
-                 <div onClick={onClose}>
+} , [exists])
+    return (
+        <div className="flex flex-col items-center justify-center">
+            <div className="flex justify-between items-center w-full">
+                <h1 className="text-2xl font-bold text-center">{category.name}</h1>
+                <button onClick={onClose} className="p-2">
                     <CloseIcon />
-                 </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:grid-cols-3">
-                    {category.subcategories.map((subcategory : any) => (
-                        <CategoryCard
-                            handleSelected={handleSelected}
-                            key={subcategory.id}
-                            category={subcategory}
-                        />
-                    ))}
-                </div>
+                </button>
             </div>
-        );
-    } 
-};
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 px-4">
+                {exists && category.subcategories.map((subcategory: Category) => (
+                    <div key={subcategory.id}>
+                        <CategoryCard category={subcategory} handleSelected={handleSelected} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}
 
 
 export default Subcategories

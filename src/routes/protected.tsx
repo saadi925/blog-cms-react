@@ -1,7 +1,6 @@
 import { Navigate } from "react-router-dom";
-// @ts-ignore 
-import { CustomRichText } from "../editor/Home.jsx" 
-
+// @ts-ignore
+import Editor from '../components/Editor'
 import Blogs from "../components/blogs/Blogs";
 import AdminSettings from "../components/AdminSettings";
 import Categories from "../components/categories/Categories";
@@ -14,8 +13,8 @@ export const ProtectedRoutes = [
     children: [
       { path: "", element: <Blogs /> },
       { path: "settings", element: <AdminSettings /> },
-      { path: "post", element: <CustomRichText /> },
-      {path :"post/edit/:slug", element: <CustomRichText editMode={true}/>},
+      { path: "post", element: <Editor /> },
+      {path :"post/edit/:slug", element: <Editor edit={true}/>},
       {path :"post/:slug", element: <BlogPostPage/>},
       { path: "categories", element: <Categories /> },
       { path: "shop", element: <MyShop /> },
