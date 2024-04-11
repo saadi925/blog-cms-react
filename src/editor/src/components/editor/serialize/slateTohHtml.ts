@@ -132,8 +132,8 @@ export const serializeNodeToHtml = (node: Descendant): string => {
 
 
 const youtubeEmbed = (youtubeId: string,inlineStyles : any) => {
-  return `<iframe style="${inlineStyles}" src="https://www.youtube.com/embed/${youtubeId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  return `<iframe style="${inlineStyles}"  src="https://www.youtube.com/embed/${youtubeId}" 
+  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+  ></iframe>`;
 }
-
-
 
