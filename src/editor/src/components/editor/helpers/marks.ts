@@ -62,10 +62,8 @@ export const isFontSizeActive = (editor: Editor, fontSize: string) => {
 };
 
 export const toggleFontSize = (editor: Editor, fontSize: string) => {
+  const {selection} = editor
   const isActive = isFontSizeActive(editor, fontSize);
-  Transforms.setNodes(
-    editor,
-    { fontSize: isActive ? undefined : fontSize },
-    { match: Text.isText, split: true }
-  );
+  Transforms.setNodes(editor, { fontSize: isActive ? undefined : fontSize }, {at: selection});
+  
 };

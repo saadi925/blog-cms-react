@@ -15,17 +15,17 @@ export const LinkModal = ({ editor, onClose } :{
   };
 
   return (
-    <div className="fixed z-50 flex gap-3  justify-center w-full ">
-      <div className="bg-gray-600 text-white flex flex-col gap-3 px-4">
+    <div className="absolute top-6 z-50 flex gap-3  justify-center w-full ">
+      <div className="  flex flex-col gap-3 px-4 bg-slate-950 rounded-2xl py-2">
         <h2>Add Link</h2>
-        <input className='flex mt-2 outline-none rounded-md px-2 text-back '
+        <input className='flex mt-2 outline-none rounded-md px-2 text-black  '
           type="text"
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
-          type="text" className='flex mt-2 outline-none rounded-md px-2 text-back'
+          type="text" className='flex mt-2 outline-none rounded-md px-2 text-black '
           placeholder="Link"
           value={link}
           onChange={(e) => setLink(e.target.value)}

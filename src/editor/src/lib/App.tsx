@@ -34,10 +34,10 @@ const App: React.FC<EditorProps>= ({content , setContent}) => {
 
   return (
     <GetElementsContext>
-      <div className={`px-5 w-full min-h-screen bg-back text-white ${!isSideBar ? "width-full" : "width-shrink"}`}>
+      <div className={`md:px-5 w-full min-h-screen bg-back text-white ${!isSideBar ? "width-full" : "width-shrink"}`}>
         <div className="editor">
-          <button className="px-5 py-1 bg-white text-black" onClick={() => setSourceView(!isSourceView)}>
-            {isSourceView ? "Switch to Rich Text" : "Switch to Source Code"}
+          <button className="px-3 py-1 bg-slate-950 text-white mt-2 rounded-2xl" onClick={() => setSourceView(!isSourceView)}>
+            {isSourceView ? "Editor" : "Source Code"}
           </button>
 
           {!isSourceView ? (

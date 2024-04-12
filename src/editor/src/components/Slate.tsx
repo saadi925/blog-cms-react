@@ -8,7 +8,6 @@ import { useEditorConfig } from "./editor/hooks/useEditorConfig";
 import { EditorInput } from "./editor/EditorInput";
 import EditorFooter from "./editor/EditorFooter";
 import ViewTypesProvider from "../context/ViewTypesContext";
-import LinkEditor from "./render/LinkEditor";
 import { isLinkNodeAtSelection } from "./editor/helpers/insertions";
 import { identifyLinksInTextIfAny } from "./editor/helpers/withEmbeds";
 export const SlateEditor = ({
@@ -35,7 +34,6 @@ export const SlateEditor = ({
     },
     [editor.selection, onChange, setSelection]
   );
-  const editorRef = useRef(null) as any
   let selectionForLink = null;
   if (isLinkNodeAtSelection(editor, selection)) {
     selectionForLink = selection;
@@ -43,38 +41,28 @@ export const SlateEditor = ({
     selectionForLink = previousSelection;
   }
   return (
-    <Slate
+  <div className="relative">
+      <Slate
       editor={editor as ReactEditor}
       initialValue={document}
       onChange={onChangeHandler}
     >
       <ViewTypesProvider>
+        <EditorFooter editor={editor} setSearch={setSearch} />
         <Toolbar
           previousSelection={previousSelection}
           setSelection={setSelection}
           isSidebar={isSidebar}
           setSideBar={setSideBar}
         />
-<div ref={editorRef}>
-{isLinkNodeAtSelection(editor, selection)? <LinkEditor editor={editor} selectionForLink={selectionForLink}
-             editorOffsets={
-              editorRef.current != null
-                ? {
-                    x: editorRef.current.getBoundingClientRect().x,
-                    y: editorRef.current.getBoundingClientRect().y,
-                  }
-                : null
-            }
-            /> : null}
         <EditorInput
           decorate={decorate}
           editor={editor}
           renderLeaf={renderLeaf}
           renderElement={renderElement}
         />
-</div>
       </ViewTypesProvider>
-      <EditorFooter editor={editor} setSearch={setSearch} />
     </Slate>
+  </div>
   );
 };

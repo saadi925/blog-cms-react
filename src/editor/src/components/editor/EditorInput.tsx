@@ -18,7 +18,7 @@ export const EditorInput: React.FC<EditorInputProps> = ({
 }) => {
   return (
     <Editable
-      className="min-h-96 p-2 border outline-none  bg-gray-800 text-white"
+      className="h-[70vh] max-h-[70vh] overflow-y-auto  border outline-none  bg-gray-800 text-white"
       decorate={decorate}
       renderElement={renderElement}
       renderLeaf={renderLeaf}

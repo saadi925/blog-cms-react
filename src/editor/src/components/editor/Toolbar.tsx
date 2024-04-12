@@ -45,8 +45,7 @@ export default function Toolbar({
   };
   const { isViewTypes, switchViewTypes }  = viewTypesCtx as any
   return (
-    <div className="flex relative gap-4" >
-      <div>
+    <div className="flex overflow-x-auto py-2    max-w-[95vw]" >
         <MarksMapper elements={MARKS_ELEMENTS} editor={editor} />
         <BlocksMapper editor={editor} elements={BLOCKS} />
         {TEXT_ALIGN_TYPES.map((e, index) => (
@@ -67,8 +66,8 @@ export default function Toolbar({
           }}
           active={false}
         />
-      
-        <IconButton
+
+       <IconButton
           icon={getIconFromStyle("insert-link")}
 
           func={() => {
@@ -91,7 +90,6 @@ export default function Toolbar({
           active={isViewTypes}
           func={switchViewTypes}
         />
-      </div>
       {isColorPicker && (
         <ColorPallete close={()=> setColorPicker(false)}
           selectedColor={color}
@@ -99,8 +97,9 @@ export default function Toolbar({
           handleColorPicker={handleColorPicker}
         />
       )}
+      
       <HeadingButtons editor={editor}/>
-      <div className="absolute top-5 md:top-0 right-0 flex">
+      <div className="flex">
         <span onClick={handleColorPicker}>
           <IconButton
             icon={<ColorIcon fill={color} />}

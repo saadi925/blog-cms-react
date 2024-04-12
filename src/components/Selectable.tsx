@@ -46,8 +46,9 @@ const Selectable = ({ value, setValue, categories }: any) => {
   };
 
   return (
-    <Listbox value={value} onChange={setValue}>
-      <div className="mb-4">
+<div className="" >
+<Listbox value={value} onChange={setValue} >
+      <div className="mb-4 ">
         <Listbox.Label className="block text-xl font-semibold text-gray-400 ">
            Category
         </Listbox.Label>
@@ -65,6 +66,7 @@ const Selectable = ({ value, setValue, categories }: any) => {
       </div>
       </div>
     </Listbox>
+</div>
   );
 };
 

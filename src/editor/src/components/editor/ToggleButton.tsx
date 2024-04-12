@@ -34,7 +34,7 @@ type IconBtnProps = {
 export const IconButton = ({ icon, active, func }: IconBtnProps) => {
   return (
     <button
-      className={`icon-btn  mx-2 ${active ? "bg-blue-600 rounded-md px-2" : ""}`}
+      className={`icon-btn  mx-2 ${active ? "bg-blue-600 rounded-md " : ""}`}
       onMouseDown={(event) => {
         event.preventDefault();
         func();

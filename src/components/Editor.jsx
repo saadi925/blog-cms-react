@@ -31,7 +31,7 @@ useEffect(()=>{
   }
 
  fetchCategories() 
-},[])
+},[CATEGORY])
 
   useEffect(()=>{
     async function fetchPost(){
